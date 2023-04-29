@@ -1,1 +1,26 @@
 
+Ataque de inundación de ICMP (Ping):
+filter: icmp
+
+Ataque de inundación de UDP:
+filter: udp
+
+Ataque de inundación de TCP:
+filter: tcp.flags.syn == 1
+
+
+Ataque de inundación de HTTP:
+filter: http.request.method == "GET" and tcp.flags.syn == 1
+
+Ataque de inundación de HTTP:
+filter: http.request.method == "GET" and tcp.flags.syn == 1
+
+
+Este filtro mostrará todos los paquetes HTTP que tienen
+el método GET y el flag SYN establecido. Esto podría indicar un ataque de inundación HTTP, que es otro tipo de ataque DDoS común.
+Ataque de amplificación DNS:
+filter: udp.srcport == 53 and dns.flags.response == 0
+
+
+Este filtro mostrará todos los paquetes DNS que tienen el puerto de origen 53 y la bandera de respuesta no establecida. Esto podría indicar un ataque de amplificación DNS, donde los atacantes envían consultas DNS falsas a servidores DNS abiertos para amplificar su ataque.
+
